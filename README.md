@@ -2,7 +2,7 @@
 The Shopping list is a web service for the convenience of Your shopping and calculation of savings. 
 
 The functionality of the service includes: 
-1.adding and removing purchases. 
+<br>1.adding and removing purchases. 
 2.calculation of the number and cost of purchases. 
 3.the ability to authorize, modify and store the shopping list in the database. 
 4.the shopping list could be automatically added from non authorized users to the database during authorization. 
