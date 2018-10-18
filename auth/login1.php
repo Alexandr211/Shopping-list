@@ -54,27 +54,26 @@ if(isset($_POST['submit']))
         // Ставим куки
         $_SESSION['hash'] = $hash;
         $_SESSION['id'] = $data['user_id'];
-        //setcookie("id", $data['user_id'], time()+3600);
-        //setcookie("hash", $hash, time()+60*60,null,null,null,false); // httponly !!!
-        
+            
 
      nick();
      
    // echo "<br>".$data['user_id'];
    // echo "<br>".$_SESSION['id'];
-      
-//echo $_SERVER['DOCUMENT_ROOT'];
-       
-       //header("Location: check.php"); 
+  //echo $_SERVER['DOCUMENT_ROOT'];
+  
 require "check1.php";    
 
 //exit();
-
+$true = 1;
+//return $true;
 
     }
     else
     {
-        print "Sorry, but login or password is not correct!";
+header('Location:/errors/index');
+       // print "Sorry, but login or password is not correct!";
+        
     }
 
 

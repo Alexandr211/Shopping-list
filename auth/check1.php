@@ -1,22 +1,22 @@
 <?php
 session_start();
 include 'bd.php';
-
-
  
 if (isset($_SESSION['id']) and isset($_SESSION['hash']))
 {
+        $true2 = 1;
+        //return $true2;
     $query = mysqli_query($link, "SELECT * FROM users WHERE user_id = '".intval($_SESSION['id'])."' LIMIT 1");
     $userdata = mysqli_fetch_assoc($query);
-   
     if(($userdata['user_hash'] !== $_SESSION['hash']) or ($userdata['user_id'] !== $_SESSION['id']) )
-    {     
-        
-        print "Oops, there are some problems... ";
+    {   
+header('Location:/errors/index1');         
+        //print "Oops, there are some problems... ";
     }
     else
     {
-        
+        $true3 = 1;
+        //return $true3;
         //print "Привет, ".$userdata['user_login'].". Всё работает!";
         //print $_COOKIE['id'];
         //print $userdata['user_id'];
@@ -85,17 +85,14 @@ unset($arr);
 } 
 
 //header("Location: page1open.php");
-//require "page1open.php";
-//exit();
-//$true = 1;
- //return $true;       
   
 }    
     }
 
 else
 {
-    print "Check Cookie, please";
+header('Location:/errors/index2');
+  //  print "Check Cookie, please";
 }
 session_unset();
 session_destroy();  

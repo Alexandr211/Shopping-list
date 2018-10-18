@@ -2,7 +2,7 @@
 
 namespace classes\models;
 //метод для отображения результатов на странице
-class User
+    class User
 {
     public function getUsers()
     {
@@ -13,7 +13,7 @@ class User
     }
 
 
-public function descrHome()
+    public function descrHome()
 {
     return ['<a class="nav-item nav-link" href="../main1">Home</a>'];
 }
@@ -33,7 +33,7 @@ public function descrHome()
         return['<a class="nav-item nav-link" href="../main2">Logout</a>'];
     }
     
-   public function Auth()
+    public function Auth()
     { 
       return 1;
    }

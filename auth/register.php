@@ -16,7 +16,7 @@ $json = $_SESSION['json'];
 $q = 2;
 setcookie("q", $q, time() + 3600, "/");
 setcookie("format1", $json, time() + 3600, "/");
-//header('Location:../classes/views/index11.php'); exit; 
+ 
 }
 
 // Соединяемся с БД
@@ -29,12 +29,12 @@ if(isset($_POST['submit']))
     // проверям логин
     if(!preg_match("/^[a-zA-Z0-9]+$/",$_POST['username']))
     {
-        $err[] = "Login can consist only of letters of the English alphabet or in the form of numbers!";
+        $err[] = "You Login can consist only of letters of the English alphabet or in the form of numbers!";
     }
 
-    if(strlen($_POST['username']) < 3 or strlen($_POST['username']) > 30)
+    if(strlen($_POST['username']) < 3 or strlen($_POST['username']) > 10)
     {
-        $err[] = "Login must be at least 3 characters and not more than 30!";
+        $err[] = "Your Login must be at least 3 characters and not more than 10!";
     }
 
     // проверяем, не существует ли пользователя с таким именем
@@ -67,8 +67,8 @@ if(isset($_POST['submit']))
         $_SESSION['hash'] = $hash;
         $_SESSION['id'] = $id['user_id'];
         
-        
-              
+        $true = 5;
+                      
     //print "Привет, ".$login.". Всё работает! Ваш пароль: $psd";
       
    
@@ -76,11 +76,11 @@ if(isset($_POST['submit']))
     }
     else
     {
-        print "<b>The following errors occurred during registration:</b><br>";
-        foreach($err AS $error)
-        {
-            print $error."<br>";
-        }
+        $_SESSION['errs'] = $err;
+        header('Location:/errors/index3');
+        //print "<b>The following errors occurred during registration:</b><br>";
+          
     }
+
 }
 ?>
